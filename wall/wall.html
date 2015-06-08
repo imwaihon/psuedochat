@@ -1,0 +1,60 @@
+<div class="container">	
+	<div class="col-lg-6">
+		<div class="row">
+			<div class="panel panel-primary">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">{{roomName}}</h3>
+			    </div>
+			</div>
+			<div class="list-group">
+				<p ng-show="LOADED == false">LOADING</p>
+			    <div class="list-group-item" ng-repeat="m in chatMessages"><a class="text-warning">{{m.postedby}}</a>: {{m.message}}</div>              
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-9">
+				  <div class="panel panel-default">
+
+					  <div class="panel-body">
+					    <h4>{{final_span}}</h4>
+					    <h4 style="color: grey">{{interim_span}}</h4>
+					  </div>
+				  </div>
+			</div>
+			<div class="col-lg-3">
+			<a class="btn btn-danger btn-lg" ng-click="sendMessage($event)" ng-show="RECORDING == false">Record</a>
+			<a class="btn btn-success btn-lg" ng-click="sendMessage($event)" ng-show="RECORDING == true">Send</a>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-6">
+			<label for="inputUser" class="control-label">Name</label>
+
+			<input type="text" class="col-lg-6 form-control" id="inputUser" placeholder="Username" ng-model="userName">
+			</div>
+			<div class="col-lg-6">
+			<label for="inputVoice" class="control-label">Voice Type</label>
+
+			<input type="number" min="0" max="70" class="col-lg-3 form-control" id="inputVoice" placeholder="Choose between 0 and 70" ng-model="voiceChoice">
+			</div>
+
+	    </div>
+	    <br>
+	    <div class="row">
+			<div class="col-lg-6">
+				<a class="btn btn-danger btn" ng-click="setLanguage('English')">English</a>
+				<a class="btn btn-danger btn" ng-click="setLanguage('中文')">中文</a>
+
+			</div>
+			<div class="col-lg-6">
+			<a class="btn btn-primary btn" ng-show="randomize == false" ng-click="randomizeVoice()">Randomize Voice</a>
+			<a class="btn btn-danger btn" ng-show="randomize == true" ng-click="randomizeVoice()">Stop Randomize Voice</a>
+			</div>
+
+	    </div>
+
+
+    </div>              
+
+</div>	
